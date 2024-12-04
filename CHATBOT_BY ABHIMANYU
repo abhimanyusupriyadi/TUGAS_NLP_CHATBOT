@@ -1,0 +1,45 @@
+import random
+
+# Combined dictionary of chatbot responses
+responses = {
+    "hi": ["Hello!", "Hi there!", "Hey! How can I help you?"],
+    "how are you": ["I'm doing well, thank you!", "I'm just a bot, but I'm fine!"],
+    "what is your name": ["I'm ChatBot!", "I go by ChatBot. How can I assist?"],
+    "what's going on with gus miftah": [
+        "There's a recent controversy involving Gus Miftah, where a video of him playfully tapping his wife's head during a concert went viral.",
+        "Gus Miftah faced criticism after a clip showed him 'toyor' his wife's head, which some perceived as inappropriate, though he clarified it was a playful gesture."
+    ],
+    "why is this controversial": [
+        "Many viewers criticized the act, interpreting it as disrespectful or even suggesting it could indicate domestic violence. However, Gus Miftah clarified that it was just a light-hearted moment, and his wife was not offended.",
+        "The controversy arose due to differing interpretations of his behavior. Some felt it was inappropriate for a religious figure, while others defended it as harmless."
+    ],
+    "how did gus miftah respond": [
+        "Gus Miftah explained that his wife found the moment funny and laughed about it. He emphasized that people should not judge without context.",
+        "He responded by defending his actions, stating that his relationship with his wife is built on mutual understanding and respect, and she did not take offense."
+    ],
+    "public reaction": [
+        "The reactions were mixed. Some supported Gus Miftah, saying it was taken out of context, while others felt it was unbefitting of someone in his position.",
+        "Social media users debated the incident, with some accusing him of setting a bad example and others defending him, emphasizing the importance of not jumping to conclusions."
+    ],
+    "oke thank chatbot": [ 
+        "you're welcome"
+    ]
+}
+
+# Function to get chatbot responses
+def get_response(user_input):
+    user_input = user_input.lower()
+    return random.choice(responses.get(user_input, ["I'm sorry, I didn't understand that."]))
+
+# Chat loop
+def chat():
+    print("ChatBot: Hello! Type 'bye' to exit.")
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == 'bye':
+            print(random.choice(responses['bye']))
+            break
+        print("ChatBot:", get_response(user_input))
+
+# Run the chatbot
+chat()
